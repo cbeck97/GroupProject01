@@ -8,23 +8,10 @@ namespace Project_1.Models
     {
         [Key]
         public int AppointmentID {get; set;}
-        public DateTime AppointmentTime {get; set;}
-
+        public string AppointmentDay {get; set;}
+        public string AppointmentTime { get; set; }
         [DefaultValue(true)]
-        public Boolean IsAvailable {get; set;}
-
-        /*
-        public int aptID
-        public string day
-        public int time
-
-        public bool IsAvailable(day, time)
-        {
-            if SQL QUERY TO CHECK IF ANY APTS MEET CRITERIA
-
-            return True or False
-        }
-         */
+        public bool IsAvailable {get; set;}
 
     }
 }

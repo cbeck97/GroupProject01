@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project_1.Models;
+using Project_1.Models.ViewModels;
 
 namespace Project_1.Controllers
 {
@@ -32,8 +33,13 @@ namespace Project_1.Controllers
 
         public IActionResult SignUp()
         {
+            //return View(new DayViewModel {
+            //  Monday = Context.Appointments
+            //     .WHERE(x => x.IsAvailable == true && x.AppointmentDay == "Monday")
+            //}
             return View();
         }
+
 
         public IActionResult ViewAppointments()
         {

@@ -12,7 +12,7 @@ namespace Project_1.Models
         {
             //this is aa test
         }
-        public DbSet<SignUpContext> SignUp { get; set; }
-        public DbSet<SignUpContext> Appointments {get; set;}
+        public DbSet<SignUp> SignUp { get; set; }
+        public DbSet<Appointments> Appointments {get; set;}
     }
 }

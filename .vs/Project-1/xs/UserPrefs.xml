@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{ACAD5B81-6DF8-4F8F-AF08-2CCAF8CD1A6F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Project-1/Views/Home/SignUp.cshtml">
+    <Files>
+      <File FileName="Project-1/Models/Appointments.cs" Line="14" Column="44" />
+      <File FileName="Project-1/Models/ViewModels/reference.cs" Line="17" Column="1" />
+      <File FileName="Project-1/Models/ViewModels/DayViewModel.cs" Line="17" Column="1" />
+      <File FileName="Project-1/Models/SignUpContext.cs" Line="19" Column="1" />
+      <File FileName="Project-1/Controllers/HomeController.cs" Line="36" Column="23" />
+      <File FileName="Project-1/Models/SignUp.cs" Line="1" Column="1" />
+      <File FileName="Project-1/Views/Home/SignUp.cshtml" Line="16" Column="21" />
+      <File FileName="Project-1/Views/_ViewStart.cshtml" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Project-1" expanded="True">
+            <Node name="Project-1" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ViewModels" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="SignUp.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Project-1 PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
