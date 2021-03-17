@@ -1,4 +1,4 @@
-﻿@model Project_1.Models.Appointments
+﻿@model ViewAppointmentsViewModel
 
 
 <h2>Appointments</h2>
@@ -14,7 +14,7 @@
 
     </thead>
     <tbody>
-        @*@foreach (Project_1.Models.SignUp x in Model)
+        @foreach (var x in Model.SignUps)
         {
         <tr>
             <td class="text-left">@x.GroupName</td>
@@ -22,7 +22,7 @@
             <td class="text-right">@x.EmailAddress</td>
 
         </tr>
-        }*@
+        }
     </tbody>
     <tfoot>
       
