@@ -3,81 +3,6 @@
 <div class="text-center">
     <H3>Please Pick a Tour Time</H3>
 </div>
-@*<div class="table-responsive">
-    <form asp-for="SignUp" method="post">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="text-center" scope="col">Monday</th>
-                    <th class="text-center" scope="col">Tuesday</th>
-                    <th class="text-center" scope="col">Wednesday</th>
-                    <th class="text-center" scope="col">Thursday</th>
-                    <th class="text-center" scope="col">Friday</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var x in Enumerable.Range(0, 13))
-                {
-                <tr>
-                    @try
-                    {
-                        //Make the button type submit
-                        <td class="text-center">
-                            <button type="submit" class="btn btn-dark" value="@Model.Monday.ElementAt(x).AppointmentDay, @Model.Monday.ElementAt(x).AppointmentTime">
-                                @($"{Model.Monday.ElementAt(x).AppointmentTime}:00 - {Int16.Parse(Model.Monday.ElementAt(x).AppointmentTime) + 1}:00")
-                            </button>
-                        </td>
-                     }
-                     catch { }
-                    @try
-                    {
-                        <td class="text-center">
-                            <button type="button" class="btn btn-dark" value="@Model.Tuesday.ElementAt(x).AppointmentTime">
-                                @($"{Model.Tuesday.ElementAt(x).AppointmentTime}:00 - {Int16.Parse(Model.Tuesday.ElementAt(x).AppointmentTime) + 1}:00")
-                            </button>
-                        </td>
-                    }
-                    catch { }
-                    @try
-                    {
-                        <td class="text-center">
-                            <button type="button" class="btn btn-dark" value="@Model.Wednesday.ElementAt(x).AppointmentTime">
-                                @($"{Model.Wednesday.ElementAt(x).AppointmentTime}:00 - {Int16.Parse(Model.Wednesday.ElementAt(x).AppointmentTime) + 1}:00")
-                            </button>
-                        </td>
-                    }
-                    catch { }
-                    @try
-                    {
-                        <td class="text-center">
-                            <button type="button" class="btn btn-dark" value="@Model.Thursday.ElementAt(x).AppointmentTime">
-                                @($"{Model.Thursday.ElementAt(x).AppointmentTime}:00 - {Int16.Parse(Model.Thursday.ElementAt(x).AppointmentTime) + 1}:00")
-                            </button>
-                        </td>
-                    }
-                    catch { }
-                    @try
-                    {
-                        <td class="text-center">
-                            <button type="button" class="btn btn-dark" value="@Model.Friday.ElementAt(x).AppointmentTime">
-                                @($"{Model.Friday.ElementAt(x).AppointmentTime}:00 - {Int16.Parse(Model.Friday.ElementAt(x).AppointmentTime) + 1}:00")
-                            </button>
-                        </td>
-                    }
-                    catch { }
-                </tr>
-                }
-            </tbody>
-        </table>
-    </form>
-</div>*@
-
-@*<form asp-for="SignUp" method="post">
-    <input type="hidden" name="day" value="Monday" />
-    <input type="hidden" name="time" value="8" />
-    <button type="submit"></button>
-</form>*@
-
 <table class="table">
     <tbody>
         <tr>
@@ -143,6 +68,36 @@
         <tr>
             <th>Friday</th>
             @foreach (var x in Model.Friday)
+            {
+
+                <td class="text-center">
+                    <form asp-for="SignUp" method="post">
+                        <input type="hidden" name="id" value="@x.AppointmentID" />
+                        <button type="submit" class="btn btn-dark">
+                            @($"{x.AppointmentTime}:00")
+                        </button>
+                    </form>
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Saturday</th>
+            @foreach (var x in Model.Saturday)
+            {
+
+                <td class="text-center">
+                    <form asp-for="SignUp" method="post">
+                        <input type="hidden" name="id" value="@x.AppointmentID" />
+                        <button type="submit" class="btn btn-dark">
+                            @($"{x.AppointmentTime}:00")
+                        </button>
+                    </form>
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Sunday</th>
+            @foreach (var x in Model.Sunday)
             {
 
                 <td class="text-center">
