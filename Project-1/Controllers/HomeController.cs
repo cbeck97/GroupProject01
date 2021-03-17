@@ -12,9 +12,11 @@ namespace Project_1.Controllers
 {
     public class HomeController : Controller
     {
+        //create context and logger
         private readonly ILogger<HomeController> _logger;
         private SignUpContext _context { get; set; }
 
+        //set context and logger
         public HomeController(ILogger<HomeController> logger, SignUpContext context)
         {
             _logger = logger;
@@ -31,10 +33,11 @@ namespace Project_1.Controllers
             return View();
         }
 
-        // 1st part of form for choosing time
+        // 1st part of form for choosing day and time
         [HttpGet]
         public IActionResult SignUp()
         {
+            //pass appointments as ienumerables for each day of week
             return View(new DayViewModel()
             {
                 Monday = _context.Appointments
@@ -50,9 +53,11 @@ namespace Project_1.Controllers
             });
         }
 
+        
         [HttpPost]
         public IActionResult SignUp(int id)
         {
+            //pushes a string for the appt day and time and also passes the appt id 
             Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
             string output = $"{appointments.AppointmentDay}, {appointments.AppointmentTime}:00 - {appointments.AppointmentTime + 1}:00";
             ViewData["output"] = output;
@@ -65,7 +70,7 @@ namespace Project_1.Controllers
         [HttpGet]
         public IActionResult Schedule(Appointments appointments)
         {
-            return View(); //pass appointment info to prepopulate sign up form
+            return View(); 
         }
 
         [HttpPost]
@@ -78,27 +83,28 @@ namespace Project_1.Controllers
                 appointments.IsAvailable = false;
 
                 //update context for new signup and appointment
-                //_context.Appointments.Add(appointments);
                 _context.Update(appointments);
 
                 _context.SignUp.Add(signUp);
                 _context.SaveChanges();
+
+                //passes a new viewmodel to view appts view
                 return View("ViewAppointments", new ViewAppointmentsViewModel
                 {
                     SignUps = _context.SignUp,
-                    Appointments = _context.Appointments.Where(x => x.IsAvailable == false)
+                    Appointments = _context.Appointments
                 });
             }
             return View();
         }
 
-
+        //view appts uses viewappointmentsviewmodel 
         public IActionResult ViewAppointments()
         {
             return View(new ViewAppointmentsViewModel
             {
                 SignUps = _context.SignUp,
-                Appointments = _context.Appointments.Where(x => x.IsAvailable == false)
+                Appointments = _context.Appointments
             });
         }
 
