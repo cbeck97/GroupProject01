@@ -38,37 +38,33 @@ namespace Project_1.Controllers
             return View(new DayViewModel()
             {
                 Monday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Monday"),
+                    .Where(x => x.AppointmentDay == "Monday" && x.IsAvailable),
                 Tuesday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Tuesday"),
+                    .Where(x => x.AppointmentDay == "Tuesday" && x.IsAvailable),
                 Wednesday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Wednesday"),
+                    .Where(x => x.AppointmentDay == "Wednesday" && x.IsAvailable),
                 Thursday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Thursday"),
+                    .Where(x => x.AppointmentDay == "Thursday" && x.IsAvailable),
                 Friday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Friday")
+                    .Where(x => x.AppointmentDay == "Friday" && x.IsAvailable)
             });
         }
 
         [HttpPost]
-        public IActionResult SignUp(string day, string time)
+        public IActionResult SignUp(Appointments appointments)
         {
-            Appointments appointments = new Appointments
-            {
-                AppointmentTime = time,
-                AppointmentDay = day
-            };
-            _context.Add(appointments);
-            _context.SaveChanges();
+            //_context.Add(appointments);
+            //_context.SaveChanges();
             return View("SignUpForm", appointments);
         }
 
 
         // 2nd part of form with group info
         [HttpGet]
-        public IActionResult SignUpForm(Appointments appointments)
+        public IActionResult SignUpForm(string[] dayTime)
         {
-            return View(appointments); //pass appointment info to prepopulate sign up form
+
+            return View(); //pass appointment info to prepopulate sign up form
         }
 
         [HttpPost]
@@ -76,7 +72,20 @@ namespace Project_1.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.SignUp.Add(signUp);
+                Appointments appointments = new Appointments
+                {
+                    AppointmentTime = time,
+                    AppointmentDay = day
+                };
+                SignUp signUp1 = new SignUp
+                {
+                    EmailAddress = signUp.EmailAddress,
+                    PhoneNumber = signUp.PhoneNumber,
+                    GroupSize = signUp.GroupSize,
+                    GroupName = signUp.GroupName,
+                    AppointmentID = signUp.AppointmentID
+                };
+                _context.SignUp.Add(signUp1);
                 _context.SaveChanges();
             }
             return View();
