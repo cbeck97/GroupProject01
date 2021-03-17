@@ -82,11 +82,11 @@ namespace Project_1.Controllers
 
         public IActionResult ViewAppointments()
         {
-            //need viewmodel for signUps and appointments
-            //IEnumerable<SignUp> signUps 
-            //_context.ViewModel.Where(x => x.Appointments.IsAvailable != true) and also return signups
-
-            return View();
+            return View(new ViewAppointmentsViewModel
+            {
+                SignUps = _context.SignUp,
+                Appointments = _context.Appointments.Where(x => x.IsAvailable == false)
+            });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
