@@ -2,7 +2,46 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Home Page</p>
+<div class="container-fluid pt-3">
+    <div class="row">
+        <div class="col-4">
+            <h1 class="display-4">Layton Utah Temple Tours</h1>
+            <p class="lead">
+                PLEASE SIGN-UP FOR SUNDAY TOURS ONLY. WE WILL SOON HAVE A NEW SCHEDULE SINCE WE HAVE BEEN ASKED TO STOP ALL OUTSIDE TOURS.
+            </p>
+            <hr />
+            <div>
+                <h4>General Tour Instructions:</h4>
+                <ul>
+                    <li>Masks are required.</li>
+                    <li>Park on Rosewood (west side of the temple) and meet at the Visitors Center trailer.</li>
+                    <li>Dress casual, except on Sunday</li>
+                </ul>
+                <h4>Special Accommodations (check the appropriate box when signing up for a tour):</h4>
+                <ul>
+                    <li>Spanish-speaking tours are available on Thursday, Friday, Saturday or Sunday</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Available Tours:</h4>
+                <ul>
+                    <li>Tour (Outdoor): We have been asked to discontinue outside tours at this time.</li>
+                    <li>Trailer Tour: All tours will be inside the trailer. Masks are required</li>
+                </ul>
+            </div>
+            <div>
+                @*can be used on footer*@
+                <p class="font-italic">Please call 801-628-4488 or email LaytonTempleTours@gmail.com with questions or special requests.</p>
+            </div>
+        </div>
+        <div class="col-8">
+            <div>
+                <img src="~/images/layton-utah-temple-6932-main.jpg" />
+            </div>
+            <br />
+            <div class="text-center">
+                <a asp-action="SignUp" class="btn btn-primary">Sign up!</a>
+            </div>
+        </div>
+    </div>
 </div>
