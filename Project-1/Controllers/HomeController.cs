@@ -83,7 +83,11 @@ namespace Project_1.Controllers
 
                 _context.SignUp.Add(signUp);
                 _context.SaveChanges();
-                return View("ViewAppointments");
+                return View("ViewAppointments", new ViewAppointmentsViewModel
+                {
+                    SignUps = _context.SignUp,
+                    Appointments = _context.Appointments.Where(x => x.IsAvailable == false)
+                });
             }
             return View();
         }
