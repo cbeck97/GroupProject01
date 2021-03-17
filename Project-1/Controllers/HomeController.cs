@@ -56,7 +56,7 @@ namespace Project_1.Controllers
             Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
             string output = $"{appointments.AppointmentDay}, {appointments.AppointmentTime}:00 - {appointments.AppointmentTime + 1}:00";
             ViewData["output"] = output;
-            return View("SignUpForm");
+            return View("Form");
         }
 
 
