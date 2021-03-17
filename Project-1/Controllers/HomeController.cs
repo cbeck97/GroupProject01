@@ -72,6 +72,12 @@ namespace Project_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                //change the appointment to not available
+                Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == signUp.AppointmentID).FirstOrDefault();
+                appointments.IsAvailable = false;
+
+                //update context for new signup and appointment
+                _context.Appointments.Add(appointments);
                 _context.SignUp.Add(signUp);
                 _context.SaveChanges();
                 return View("ViewAppointments");
