@@ -53,11 +53,10 @@ namespace Project_1.Controllers
         [HttpPost]
         public IActionResult SignUp(int id)
         {
-            Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
             return View("SignUpForm", new SignUpAppointmentsViewModel
             {
                 SignUps = new SignUp(),
-                Appointments = _context.Appointments.Where(x => x.AppointmentID == appointments.AppointmentID).FirstOrDefault(),
+                Appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault(),
             });
         }
 
