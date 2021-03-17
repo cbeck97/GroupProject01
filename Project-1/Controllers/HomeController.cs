@@ -35,7 +35,7 @@ namespace Project_1.Controllers
         {
             //return View(new DayViewModel {
             //  Monday = Context.Appointments
-            //     .WHERE(x => x.IsAvailable == true && x.AppointmentDay == "Monday")
+            //     .WHERE(x => x.IsAvailable == true && x.AppointmentDay == "Monday"),
             //}
             return View();
         }
