@@ -68,11 +68,11 @@ namespace Project_1.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUpForm(SignUpAppointmentsViewModel signUp)
+        public IActionResult SignUpForm(SignUp signUp)
         {
             if (ModelState.IsValid)
             {
-                _context.SignUp.Add(signUp.SignUps);
+                _context.SignUp.Add(signUp);
                 _context.SaveChanges();
                 return View("ViewAppointments");
             }
