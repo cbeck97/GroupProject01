@@ -51,8 +51,9 @@ namespace Project_1.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUp(Appointments appointments)
+        public IActionResult SignUp(int id)
         {
+            Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
             //_context.Add(appointments);
             //_context.SaveChanges();
             return View("SignUpForm", appointments);
