@@ -38,7 +38,7 @@ namespace Project_1.Controllers
             return View(new DayViewModel()
             {
                 Monday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Monday"),
+                    .Where(x => x.AppointmentDay == "Monday" && x.IsAvailable),
                 Tuesday = _context.Appointments
                     .Where(x => x.AppointmentDay == "Tuesday" && x.IsAvailable),
                 Wednesday = _context.Appointments
