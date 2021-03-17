@@ -1,39 +1,81 @@
-﻿@*@model DayViewModel*@
+﻿@model DayViewModel
 
 <div class="text-center">
     <H3>Please Pick a Tour Time</H3>
+</div>
+<div class="table-responsive">
     <form>
-        <table>
-            <thead>
+        <table class="table">
+            <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Monday</th>
-                    <th scope="col">Tuesday</th>
-                    <th scope="col">Wednesday</th>
-                    <th scope="col">Thursday</th>
-                    <th scope="col">Friday</th>
+                    <th class="text-center" scope="col">Monday</th>
+                    <th class="text-center" scope="col">Tuesday</th>
+                    <th class="text-center" scope="col">Wednesday</th>
+                    <th class="text-center" scope="col">Thursday</th>
+                    <th class="text-center" scope="col">Friday</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var x in Enumerable.Range(8, 13))
+                @foreach (var x in Enumerable.Range(0, 13))
                 {
+                    //See if we can change the view model from IEnumerable to lists instead. This will optimize memory and possibly speed up the backend load time
+
+                    //This is an idea:
+                    //We only populate appointments that are scheduled, so the list will only be scheduled appointments. If we do it this way we can do:
+                    //if (Model.Monday.ToList().Contains(x)) --> This will return true if the item is in the list. False if not. We will only
+                    //Build the buttons that return false from the above code block
                 <tr>
                     @try
                     {
-                        @*<td>$("{Model.Monday[x]}:00 - {Model.Monday[x] + 1}:00")</td>*@
-                        @*<td>Model.Tuesday[x]</td>*@
-                        @*<td>Model.Wednesday[x]</td>*@
-                        @*<td>Model.Thursday[x]</td>*@
-                        @*<td>Model.Friday[x]</td>*@
+                        //Make the button type submit
+                        <td class="text-center">
+                            <button type="button" class="btn btn-dark" value="@Model.Monday.ToList()[x].AppointmentTime">
+                                @($"{Model.Monday.ToList()[x].AppointmentTime}:00 - {Int16.Parse(Model.Monday.ToList()[x].AppointmentTime) + 1}:00")
+                            </button>
+                        </td>
                     }
-                    catch
+                    catch { }
+                    @try
                     {
-                        <td>Unavailable</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-dark">
+                                @($"{Model.Tuesday.ToList()[x].AppointmentTime}:00 - {Int16.Parse(Model.Tuesday.ToList()[x].AppointmentTime) + 1}:00")
+                            </button>
+                        </td>
                     }
-
+                    catch { }
+                    @try
+                    {
+                        <td class="text-center">
+                            <button type="button" class="btn btn-dark">
+                                @($"{Model.Wednesday.ToList()[x].AppointmentTime}:00 - {Int16.Parse(Model.Wednesday.ToList()[x].AppointmentTime) + 1}:00")
+                            </button>
+                        </td>
+                    }
+                    catch { }
+                    @try
+                    {
+                        <td class="text-center">
+                            <button type="button" class="btn btn-dark">
+                                @($"{Model.Thursday.ToList()[x].AppointmentTime}:00 - {Int16.Parse(Model.Thursday.ToList()[x].AppointmentTime) + 1}:00")
+                            </button>
+                        </td>
+                    }
+                    catch { }
+                    @try
+                    {
+                        <td class="text-center">
+                            <button type="button" class="btn btn-dark">
+                                @($"{Model.Friday.ToList()[x].AppointmentTime}:00 - {Int16.Parse(Model.Friday.ToList()[x].AppointmentTime) + 1}:00")
+                            </button>
+                        </td>
+                    }
+                    catch { }
                 </tr>
                 }
             </tbody>
         </table>
     </form>
-
 </div>
+
+
