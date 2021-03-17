@@ -16,17 +16,21 @@
             <tbody>
                 @foreach (var x in Enumerable.Range(8, 13))
                 {
-                    <tr>
-                        @try
-                        {
-                            @*<td>Model.Monday[x]</td>*@     
-                        }
-                        catch
-                        {
-                            <td>Unavailable</td>
-                        }
+                <tr>
+                    @try
+                    {
+                        @*<td>$("{Model.Monday[x]}:00 - {Model.Monday[x] + 1}:00")</td>*@
+                        @*<td>Model.Tuesday[x]</td>*@
+                        @*<td>Model.Wednesday[x]</td>*@
+                        @*<td>Model.Thursday[x]</td>*@
+                        @*<td>Model.Friday[x]</td>*@
+                    }
+                    catch
+                    {
+                        <td>Unavailable</td>
+                    }
 
-                    </tr>
+                </tr>
                 }
             </tbody>
         </table>
