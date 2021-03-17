@@ -49,7 +49,11 @@ namespace Project_1.Controllers
                 Thursday = _context.Appointments
                     .Where(x => x.AppointmentDay == "Thursday" && x.IsAvailable),
                 Friday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Friday" && x.IsAvailable)
+                    .Where(x => x.AppointmentDay == "Friday" && x.IsAvailable),
+                Saturday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Saturday" && x.IsAvailable),
+                Sunday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Sunday" && x.IsAvailable)
             });
         }
 
