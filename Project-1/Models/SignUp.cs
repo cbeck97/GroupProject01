@@ -9,8 +9,8 @@ namespace Project_1.Models
         public SignUp()
         {
         }
+        //SignUp Data Table
         [Key]
-        
         public int SubmissionID {get; set;}
         [Required]
         public string GroupName {get; set;}
