@@ -10,7 +10,7 @@ namespace Project_1.Models.ViewModels
         {
         }
 
-        public IEnumerable<SignUp> SignUps { get; set; }
-        public IEnumerable<Appointments> Appointments { get; set; }
+        public SignUp SignUps { get; set; }
+        public Appointments Appointments { get; set; }
     }
 }
