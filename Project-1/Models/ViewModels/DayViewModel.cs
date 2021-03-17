@@ -5,6 +5,8 @@ namespace Project_1.Models.ViewModels
 {
     public class DayViewModel
     {
+
+        //Create IEnumerables for controller to make a list for available appointments display
         public IEnumerable<Appointments> Monday { get; set; }
 
         public IEnumerable<Appointments> Tuesday { get; set; }

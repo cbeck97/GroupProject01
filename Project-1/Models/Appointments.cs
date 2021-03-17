@@ -6,6 +6,7 @@ namespace Project_1.Models
 {
     public class Appointments
     {
+        //Appointments Data Table Model
         [Key]
         public int AppointmentID {get; set;}
         public string AppointmentDay {get; set;}

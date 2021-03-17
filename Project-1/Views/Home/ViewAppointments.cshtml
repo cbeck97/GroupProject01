@@ -1,4 +1,4 @@
-﻿@model Project_1.Models.Appointments
+﻿@model ViewAppointmentsViewModel
 
 
 <h2>Appointments</h2>
@@ -9,20 +9,24 @@
             <th>Name of Group</th>
             <th>Size of Group</th>
             <th>Email Address</th>
+            <th>Day</th>
             <th>Time</th>
         </tr>
 
     </thead>
     <tbody>
-        @*@foreach (Project_1.Models.SignUp x in Model)
+        @foreach (var x in Model.SignUps)
         {
         <tr>
             <td class="text-left">@x.GroupName</td>
             <td class="text-center">@x.GroupSize</td>
             <td class="text-right">@x.EmailAddress</td>
+            <td class="text-right">@Model.Appointments.Where(y => y.AppointmentID == x.AppointmentID).FirstOrDefault().AppointmentDay</td>
+            <td class="text-right">@($"{@Model.Appointments.Where(y => y.AppointmentID == x.AppointmentID).FirstOrDefault().AppointmentTime}:00")</td>
+
 
         </tr>
-        }*@
+        }
     </tbody>
     <tfoot>
       

@@ -10,6 +10,7 @@ namespace Project_1.Models.ViewModels
         {
         }
 
+        //Create Lists for Controller handling signups and appointments
         public SignUp SignUps { get; set; }
         public Appointments Appointments { get; set; }
     }

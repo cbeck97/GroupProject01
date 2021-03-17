@@ -9,6 +9,8 @@ namespace Project_1.Models.ViewModels
         public ViewAppointmentsViewModel()
         {
         }
+
+        //Creating IEnumerables for View Appointments Table
         public IEnumerable<SignUp> SignUps { get; set; }
         public IEnumerable<Appointments> Appointments { get; set; }
     }

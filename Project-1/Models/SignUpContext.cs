@@ -10,7 +10,6 @@ namespace Project_1.Models
     {
         public SignUpContext (DbContextOptions<SignUpContext> options):base(options)
         {
-            //this is aa test
         }
         public DbSet<SignUp> SignUp { get; set; }
         public DbSet<Appointments> Appointments {get; set;}
