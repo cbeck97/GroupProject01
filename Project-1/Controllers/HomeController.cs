@@ -98,7 +98,7 @@ namespace Project_1.Controllers
             return View(new ViewAppointmentsViewModel
             {
                 SignUps = _context.SignUp,
-                Appointments = _context.Appointments.Where(x => x.IsAvailable == false)
+                Appointments = _context.Appointments
             });
         }
 

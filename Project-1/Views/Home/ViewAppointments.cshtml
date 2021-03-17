@@ -9,6 +9,7 @@
             <th>Name of Group</th>
             <th>Size of Group</th>
             <th>Email Address</th>
+            <th>Day</th>
             <th>Time</th>
         </tr>
 
@@ -20,6 +21,9 @@
             <td class="text-left">@x.GroupName</td>
             <td class="text-center">@x.GroupSize</td>
             <td class="text-right">@x.EmailAddress</td>
+            <td class="text-right">@Model.Appointments.Where(y => y.AppointmentID == x.AppointmentID).FirstOrDefault().AppointmentDay</td>
+            <td class="text-right">@($"{@Model.Appointments.Where(y => y.AppointmentID == x.AppointmentID).FirstOrDefault().AppointmentTime}:00")</td>
+
 
         </tr>
         }
