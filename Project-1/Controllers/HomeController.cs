@@ -53,9 +53,13 @@ namespace Project_1.Controllers
         [HttpPost]
         public IActionResult SignUp(string day, string time)
         {
-            Appointments appointments = _context.Appointments
-                .Where(x => x.AppointmentDay == day && x.AppointmentTime == time)
-                .FirstOrDefault();
+            Appointments appointments = new Appointments
+            {
+                AppointmentTime = time,
+                AppointmentDay = day
+            };
+            _context.Add(appointments);
+            _context.SaveChanges();
             return View("SignUpForm", appointments);
         }
 
