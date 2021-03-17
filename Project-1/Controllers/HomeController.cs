@@ -54,7 +54,11 @@ namespace Project_1.Controllers
         public IActionResult SignUp(int id)
         {
             Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
-            return View("SignUpForm", appointments);
+            return View("SignUpForm", new SignUpAppointmentsViewModel
+            {
+                SignUps = new SignUp(),
+                Appointments = _context.Appointments.Where(x => x.AppointmentID == appointments.AppointmentID).FirstOrDefault(),
+            });
         }
 
 
@@ -62,12 +66,7 @@ namespace Project_1.Controllers
         [HttpGet]
         public IActionResult SignUpForm(Appointments appointments)
         {
-
-            return View(new SignUpAppointmentsViewModel
-            {
-                SignUps = new SignUp(),
-                Appointments = _context.Appointments.Where(x => x.AppointmentID == appointments.AppointmentID).FirstOrDefault(),
-            }); //pass appointment info to prepopulate sign up form
+            return View(); //pass appointment info to prepopulate sign up form
         }
 
         [HttpPost]
