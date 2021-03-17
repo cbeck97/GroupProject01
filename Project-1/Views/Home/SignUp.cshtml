@@ -20,6 +20,8 @@
                 {
                     //See if we can change the view model from IEnumerable to lists instead. This will optimize memory and possibly speed up the backend load time
 
+                    //Also see if we can change the Appointment Time to an Int rather than a string
+
                     //This is an idea:
                     //We only populate appointments that are scheduled, so the list will only be scheduled appointments. If we do it this way we can do:
                     //if (Model.Monday.ToList().Contains(x)) --> This will return true if the item is in the list. False if not. We will only
