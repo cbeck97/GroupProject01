@@ -38,7 +38,7 @@ namespace Project_1.Controllers
             return View(new DayViewModel()
             {
                 Monday = _context.Appointments
-                    .Where(x => x.AppointmentDay == "Monday" && x.IsAvailable),
+                    .Where(x => x.AppointmentDay == "Monday"),
                 Tuesday = _context.Appointments
                     .Where(x => x.AppointmentDay == "Tuesday" && x.IsAvailable),
                 Wednesday = _context.Appointments
@@ -68,29 +68,29 @@ namespace Project_1.Controllers
             return View(); //pass appointment info to prepopulate sign up form
         }
 
-        [HttpPost]
-        public IActionResult SignUpForm(SignUp signUp)
-        {
-            if (ModelState.IsValid)
-            {
-                Appointments appointments = new Appointments
-                {
-                    AppointmentTime = time,
-                    AppointmentDay = day
-                };
-                SignUp signUp1 = new SignUp
-                {
-                    EmailAddress = signUp.EmailAddress,
-                    PhoneNumber = signUp.PhoneNumber,
-                    GroupSize = signUp.GroupSize,
-                    GroupName = signUp.GroupName,
-                    AppointmentID = signUp.AppointmentID
-                };
-                _context.SignUp.Add(signUp1);
-                _context.SaveChanges();
-            }
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult SignUpForm(SignUp signUp)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Appointments appointments = new Appointments
+        //        {
+        //            AppointmentTime = time,
+        //            AppointmentDay = day
+        //        };
+        //        SignUp signUp1 = new SignUp
+        //        {
+        //            EmailAddress = signUp.EmailAddress,
+        //            PhoneNumber = signUp.PhoneNumber,
+        //            GroupSize = signUp.GroupSize,
+        //            GroupName = signUp.GroupName,
+        //            AppointmentID = signUp.AppointmentID
+        //        };
+        //        _context.SignUp.Add(signUp1);
+        //        _context.SaveChanges();
+        //    }
+        //    return View();
+        //}
 
 
         public IActionResult ViewAppointments()
