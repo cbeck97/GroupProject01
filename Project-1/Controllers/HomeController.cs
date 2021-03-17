@@ -31,18 +31,60 @@ namespace Project_1.Controllers
             return View();
         }
 
+        // 1st part of form for choosing time
+        [HttpGet]
         public IActionResult SignUp()
         {
-            //return View(new DayViewModel {
-            //  Monday = Context.Appointments
-            //     .WHERE(x => x.IsAvailable == true && x.AppointmentDay == "Monday"),
-            //}
+            return View(new DayViewModel()
+            {
+                Monday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Monday"),
+                Tuesday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Tuesday"),
+                Wednesday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Wednesday"),
+                Thursday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Thursday"),
+                Friday = _context.Appointments
+                    .Where(x => x.AppointmentDay == "Friday")
+            });
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(string day, string time)
+        {
+            Appointments appointments = _context.Appointments
+                .Where(x => x.AppointmentDay == day && x.AppointmentTime == time)
+                .FirstOrDefault();
+            return View("SignUpForm", appointments);
+        }
+
+
+        // 2nd part of form with group info
+        [HttpGet]
+        public IActionResult SignUpForm(Appointments appointments)
+        {
+            return View(appointments); //pass appointment info to prepopulate sign up form
+        }
+
+        [HttpPost]
+        public IActionResult SignUpForm(SignUp signUp)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.SignUp.Add(signUp);
+                _context.SaveChanges();
+            }
             return View();
         }
 
 
         public IActionResult ViewAppointments()
         {
+            //need viewmodel for signUps and appointments
+            //IEnumerable<SignUp> signUps 
+            //_context.ViewModel.Where(x => x.Appointments.IsAvailable != true) and also return signups
+
             return View();
         }
 
