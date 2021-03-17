@@ -62,13 +62,13 @@ namespace Project_1.Controllers
 
         // 2nd part of form with group info
         [HttpGet]
-        public IActionResult SignUpForm(Appointments appointments)
+        public IActionResult Form(Appointments appointments)
         {
             return View(); //pass appointment info to prepopulate sign up form
         }
 
         [HttpPost]
-        public IActionResult SignUpForm(SignUp signUp)
+        public IActionResult Form(SignUp signUp)
         {
             if (ModelState.IsValid)
             {
