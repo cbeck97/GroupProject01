@@ -56,19 +56,20 @@ namespace Project_1.Controllers
             Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
             string output = $"{appointments.AppointmentDay}, {appointments.AppointmentTime}:00 - {appointments.AppointmentTime + 1}:00";
             ViewData["output"] = output;
-            return RedirectToAction("Form", appointments);
+            ViewData["id"] = id;
+            return View("Schedule");
         }
 
 
         // 2nd part of form with group info
         [HttpGet]
-        public IActionResult Form(Appointments appointments)
+        public IActionResult Schedule(Appointments appointments)
         {
             return View(); //pass appointment info to prepopulate sign up form
         }
 
         [HttpPost]
-        public IActionResult Form(SignUp signUp)
+        public IActionResult Schedule(SignUp signUp)
         {
             if (ModelState.IsValid)
             {
