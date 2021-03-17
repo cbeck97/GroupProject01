@@ -78,7 +78,9 @@ namespace Project_1.Controllers
                 appointments.IsAvailable = false;
 
                 //update context for new signup and appointment
-                _context.Appointments.Add(appointments);
+                //_context.Appointments.Add(appointments);
+                _context.Update(appointments);
+
                 _context.SignUp.Add(signUp);
                 _context.SaveChanges();
                 return View("ViewAppointments");
