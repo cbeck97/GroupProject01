@@ -53,11 +53,10 @@ namespace Project_1.Controllers
         [HttpPost]
         public IActionResult SignUp(int id)
         {
-            return View("SignUpForm", new SignUpAppointmentsViewModel
-            {
-                SignUps = new SignUp(),
-                Appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault(),
-            });
+            Appointments appointments = _context.Appointments.Where(x => x.AppointmentID == id).FirstOrDefault();
+            string output = $"{appointments.AppointmentDay}, {appointments.AppointmentTime}:00 - {appointments.AppointmentTime + 1}:00";
+            ViewData["output"] = output;
+            return View("SignUpForm");
         }
 
 
@@ -69,11 +68,11 @@ namespace Project_1.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUpForm(SignUp signUp)
+        public IActionResult SignUpForm(SignUpAppointmentsViewModel signUp)
         {
             if (ModelState.IsValid)
             {
-                _context.SignUp.Add(signUp);
+                _context.SignUp.Add(signUp.SignUps);
                 _context.SaveChanges();
                 return View("ViewAppointments");
             }
