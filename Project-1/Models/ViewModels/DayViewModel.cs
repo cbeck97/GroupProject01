@@ -17,6 +17,10 @@ namespace Project_1.Models.ViewModels
 
         public IEnumerable<Appointments> Friday { get; set; }
 
+        public IEnumerable<Appointments> Saturday { get; set; }
+
+        public IEnumerable<Appointments> Sunday { get; set; }
+
     }
 
 }
