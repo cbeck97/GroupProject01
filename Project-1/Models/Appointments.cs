@@ -9,7 +9,7 @@ namespace Project_1.Models
         [Key]
         public int AppointmentID {get; set;}
         public string AppointmentDay {get; set;}
-        public string AppointmentTime { get; set; }
+        public int AppointmentTime { get; set; }
         [DefaultValue(true)]
         public bool IsAvailable {get; set;}
 
