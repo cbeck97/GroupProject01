@@ -56,9 +56,13 @@ namespace Project_1
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("signup",
+                   "Schedule",
+                   new { Controller = "Home", action = "SignUp" });
+                endpoints.MapControllerRoute("appointments",
+                   "ViewAppointments",
+                   new { Controller = "Home", action = "ViewAppointments" });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
