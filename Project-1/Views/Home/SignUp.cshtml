@@ -7,9 +7,10 @@
     <tbody>
         <tr>
             <th>Monday</th>
+            @*Iterate through each day and populate all of the available time slots*@
             @foreach (var x in Model.Monday)
             {
-
+                @*Create a button for each time slot. This button will pass the associated aptID if it is selected*@
                 <td class="text-center">
                     <form asp-for="SignUp" method="post">
                         <input type="hidden" name="id" value="@x.AppointmentID" />
